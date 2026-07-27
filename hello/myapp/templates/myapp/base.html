@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}MyApp{% endblock %}</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f2f2f2; }
+        .box { width: 320px; margin: 80px auto; background: #fff;
+               padding: 25px; border-radius: 6px; box-shadow: 0 0 8px #ccc; }
+        h2 { text-align: center; }
+        input { width: 100%; padding: 8px; margin: 6px 0; box-sizing: border-box; }
+        button { width: 100%; padding: 9px; background: #2d6cdf; color: #fff;
+                 border: none; cursor: pointer; }
+        .msg { color: red; font-size: 14px; }
+        .ok { color: green; font-size: 14px; }
+        a { color: #2d6cdf; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        {% for message in messages %}
+            <p class="{% if message.tags == 'success' %}ok{% else %}msg{% endif %}">{{ message }}</p>
+        {% endfor %}
+
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
